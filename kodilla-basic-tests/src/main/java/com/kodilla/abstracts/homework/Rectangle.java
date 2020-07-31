@@ -1,19 +1,24 @@
 package com.kodilla.abstracts.homework;
 
 public class Rectangle extends Shape {
-    public Rectangle() {
-        super("2 * a + 2 * b", "a * b");
+    private int a;
+    private int b;
+
+    public Rectangle(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+
+    @Override
+    public void calculatePerimeter() {
+        int perimeter = 2*a + 2*b;
+        System.out.println("Rectangle perimeter equals " + perimeter);
     }
 
     @Override
-    public void giveCircuit() {
-        System.out.println("Formula for a rectangle circuit is:");
-
-    }
-
-    @Override
-    public void giveSurfaceArea() {
-        System.out.println("Formula for a rectangle surface area is:");
-
+    public void calculateSurfaceArea() {
+        int surface = a * b;
+        System.out.println("Rectangle surface equals " + surface);
     }
 }

@@ -1,19 +1,26 @@
 package com.kodilla.abstracts.homework;
 
 public class Triangle extends Shape {
-    public Triangle() {
-        super("a * 3", "(a*h)/2");
+    private int a;
+    private int b;
+    private int h;
+
+    public Triangle(int a, int b, int h) {
+        this.a = a;
+        this.b = b;
+        this.h = h;
     }
 
     @Override
-    public void giveCircuit() {
-        System.out.println("Formula for triangle circuit is:");
-
+    public void calculatePerimeter() {
+        int perimeter = 2 * a + b;
+        System.out.println("Triangle perimeter equals" + perimeter);
     }
 
     @Override
-    public void giveSurfaceArea() {
-        System.out.println("Formula for triangle surface area is:");
-
+    public void calculateSurfaceArea() {
+        int surface = (a * h) / 2;
+        System.out.println("Triangle surface equals" + surface);
     }
 }
+

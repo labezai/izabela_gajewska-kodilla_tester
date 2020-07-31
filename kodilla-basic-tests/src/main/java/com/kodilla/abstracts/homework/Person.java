@@ -3,28 +3,16 @@ package com.kodilla.abstracts.homework;
 public class Person {
     private String firstName;
     private int age;
-    private String job;
+    private Job job;
 
-    public Person(String firstName, int age, String job) {
+    public Person(String firstName, int age, Job job) {
         this.firstName = firstName;
         this.age = age;
         this.job = job;
     }
 
-    Person chef = new Person("Adam", 38, "chef");
-    Person singer = new Person("Kasia", 16, "singer");
-    Person teacher = new Person("Wojtek", 90, "teacher");
-    Person doctor = new Person("Aloizy", 50, "doctor");
-
-    public static void main(String[] args) {
-        Chef chef = new Chef();
-        chef.showResponsibilities();
-        Doctor doctor = new Doctor();
-        doctor.showResponsibilities1();
-        Singer singer = new Singer();
-        singer.showResponsibilities2();
-        Teacher teacher = new Teacher();
-        teacher.showResponsibilities3();
-    }
-
+    Person chef = new Person("Adam", 38, new Chef());
+    Person singer = new Person("Kasia", 16, new Singer());
+    Person teacher = new Person("Wojtek", 90, new Teacher());
+    Person doctor = new Person("Aloizy", 50, new Doctor());
 }

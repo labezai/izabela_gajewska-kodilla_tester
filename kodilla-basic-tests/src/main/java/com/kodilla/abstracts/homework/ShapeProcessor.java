@@ -1,16 +1,17 @@
 package com.kodilla.abstracts.homework;
 
 public class ShapeProcessor {
-
-    public void process(Shape shape) {
-        System.out.println("Formula for a triangle circuit is" + " " + shape.getCircuit() + " " + "and formula for a triangle area is" + " " + shape.getSurfaceArea());
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(2, 5);
+        Triangle triangle = new Triangle(4, 1, 3);
+        Square square = new Square(9);
+        process(rectangle);
+        process(triangle);
+        process(square);
     }
 
-    public void process1(Shape shape) {
-        System.out.println("Formula for a square circuit is" + " " + shape.getCircuit() + " " + "and formula for a square area is" + " " + shape.getSurfaceArea());
-    }
-
-    public void process2(Shape shape) {
-        System.out.println("Formula for a rectangle circuit is" + " " + shape.getCircuit() + " " + "and formula for a rectangle area is" + " " + shape.getSurfaceArea());
+    public static void process(Shape shape) {
+        shape.calculatePerimeter();
+        shape.calculateSurfaceArea();
     }
 }
