@@ -6,7 +6,7 @@ public class Tesla implements Car {
     private int increase;
 
 
-    public Tesla(int speed, int decrease, int increase) {
+    public Tesla(int speed) {
         this.speed = speed;
         this.decrease = decrease;
         this.increase = increase;

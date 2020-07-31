@@ -6,7 +6,7 @@ public class Mustang implements Car {
     private int increase;
 
 
-    public Mustang(int speed, int decrease, int increase) {
+    public Mustang(int speed) {
         this.speed = speed;
         this.decrease = decrease;
         this.increase = increase;

@@ -1,16 +1,14 @@
 package com.kodilla.collections.interfaces.homework;
 
-import com.kodilla.collections.interfaces.Shape;
-
 public class CarRace {
     public static void main(String[] args) {
-        Mustang mustang = new Mustang(200, 50, 70);
+        Mustang mustang = new Mustang(200);
         doRace(mustang);
 
-        Tesla tesla = new Tesla(150, 25, 30);
+        Tesla tesla = new Tesla(150);
         doRace(tesla);
 
-        Lexus lexus = new Lexus(300, 20, 40);
+        Lexus lexus = new Lexus(300);
         doRace(lexus);
     }
 

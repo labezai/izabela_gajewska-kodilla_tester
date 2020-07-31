@@ -1,2 +1,10 @@
 rootProject.name = 'kodills-course'
+include 'kodilla-intro'
+include 'kodilla-basic-tests'
+include 'kodilla-collections'
+include 'kodilla-collections-advanced'
+include 'com.kodilla.collections.adv'
+include 'com.kodilla.collections.adv'
+include 'kodilla-collections-advanced:com.kodilla.collections.adv'
+findProject(':kodilla-collections-advanced:com.kodilla.collections.adv')?.name = 'com.kodilla.collections.adv'
 

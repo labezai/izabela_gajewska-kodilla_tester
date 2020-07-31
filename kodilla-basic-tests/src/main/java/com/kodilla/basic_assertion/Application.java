@@ -5,8 +5,8 @@ public class Application {
         Calculator calculator = new Calculator();
         int a = 5;
         int b = 8;
-        int c = 3;
-        int d = 2;
+        int first  = 3;
+        int second = 2;
         int sumResult = calculator.sum(a,b);
         boolean correct = ResultChecker.assertEquals(13, sumResult);
         if(correct) {
@@ -21,12 +21,12 @@ public class Application {
         }else{
             System.out.println("Metoda subtract nie dziala poprawnie dla liczb" + " " + a + " i " + b);
         }
-        int squaredResult = calculator.pow(c,d);
-        boolean correct2 = ResultChecker.assertEquals(9, squaredResult);
+        double powResult = Math.pow(first, second);
+        boolean correct2 = ResultChecker.assertEquals(9,  powResult);
         if(correct2) {
-            System.out.println("Metoda squared działa poprawnie dla liczb" + " " + c + " i " + d);
+            System.out.println("Metoda squared działa poprawnie dla liczb" + " " + first + " podniesiona do potęgi" + second );
         }else{
-            System.out.println("Metoda squared nie działa poprawnie dla liczb" + " " + c + " i " + d);
+            System.out.println("Metoda squared nie działa poprawnie dla liczb" + " " + first + "podniesiona do potęgi " + second);
         }
     }
 }

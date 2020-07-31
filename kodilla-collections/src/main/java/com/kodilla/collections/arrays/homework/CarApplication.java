@@ -28,7 +28,7 @@ public class CarApplication {
          else if (choosenCarKind == 1)
                 return new Mustang(a);
         else
-                return new Tesla(a, b, c);
+                return new Tesla(a);
         }
 
     }
