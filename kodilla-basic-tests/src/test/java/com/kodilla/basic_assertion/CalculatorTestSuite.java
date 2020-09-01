@@ -12,7 +12,7 @@ public class CalculatorTestSuite {
     @Test
     public void testSum() {
         int sumResult = calculator.sum(a, b);
-        assertEquals(14, sumResult);
+        assertEquals(13, sumResult);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class CalculatorTestSuite {
     @Test
     public void testMathFunctions() {
         double first = 3;
-        int second = 2;
+        int second = 3;
         double powResult = Calculator.mathFunctions(first, second);
         assertEquals(9, powResult);
     }
