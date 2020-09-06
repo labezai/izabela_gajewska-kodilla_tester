@@ -10,4 +10,5 @@ findProject(':kodilla-collections-advanced:com.kodilla.collections.adv')?.name =
 include 'kodilla-stream'
 include 'kodilla-advanced-tests'
 include 'kodilla-spring-basic'
+include 'kodilla-rest-api'
 

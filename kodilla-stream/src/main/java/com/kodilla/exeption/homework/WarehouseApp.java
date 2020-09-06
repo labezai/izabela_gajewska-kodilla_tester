@@ -2,6 +2,7 @@ package com.kodilla.exeption.homework;
 
 public class WarehouseApp {
 
+
     public static void main(String[] args) throws OrderDoesntExistException {
         Warehouse warehouse = new Warehouse();
         warehouse.addOrder(new Order("1"));
@@ -15,7 +16,8 @@ public class WarehouseApp {
         warehouse.addOrder(new Order("9"));
         warehouse.addOrder(new Order("10"));
 
-            warehouse.getOrder("2");
-    }
+        warehouse.getOrder("10");
+
+        }
 
     }

@@ -11,9 +11,9 @@ public class Warehouse {
 
     }
 
-    public void addOrder(Order order) {
-        orders.add(order);
-    }
+//    public void addOrder(Order order) {
+//        orders.add(order);
+//    }
 
     public Order getOrder(String number) throws OrderDoesntExistException {
         Order tmp = orders
@@ -22,4 +22,8 @@ public class Warehouse {
                 .findFirst().orElseThrow(() -> new OrderDoesntExistException());
         return tmp;
     }
- }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+}
