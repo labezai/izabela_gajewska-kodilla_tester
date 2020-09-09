@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class WarehouseTestSuite {
 
-    @Test(expected = OrderDoesntExistException.class)
+    @Test
     public void testGetOrder_withException() throws OrderDoesntExistException {
         Warehouse warehouse = new Warehouse();
         warehouse.addOrder(new Order("12"));

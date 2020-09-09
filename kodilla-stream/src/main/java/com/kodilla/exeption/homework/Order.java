@@ -10,7 +10,7 @@ public class Order {
     }
 
     public String getNumber() {
-        return getNumber();
+        return number;
     }
 
 }

@@ -16,8 +16,10 @@ public class WarehouseApp {
         warehouse.addOrder(new Order("9"));
         warehouse.addOrder(new Order("10"));
 
-        warehouse.getOrder("10");
-
+        try{
+            System.out.println(warehouse.getOrder("11").getNumber());
+        } catch (OrderDoesntExistException e){
+            System.out.println("I can't find this order.");
         }
-
+        }
     }

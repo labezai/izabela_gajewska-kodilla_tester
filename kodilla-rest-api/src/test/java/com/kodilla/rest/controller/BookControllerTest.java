@@ -28,4 +28,16 @@ class BookControllerTest {
         //then
         assertThat(result).hasSize(2);
     }
+
+    @Test
+    void shouldAddBook() {
+        
+        //given
+      //  BookController bookController = new BookController();
+
+        //when
+       // public void addBook  = bookController.addBook("title1", "author1");
+        //then
+     //   assertThat(result).hasSize(2);
+    }
 }

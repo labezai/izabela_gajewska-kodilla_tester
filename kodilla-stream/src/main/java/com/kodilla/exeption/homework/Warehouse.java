@@ -8,12 +8,11 @@ public class Warehouse {
 
     public Warehouse() {
         this.orders = new ArrayList<>();
-
     }
 
-//    public void addOrder(Order order) {
-//        orders.add(order);
-//    }
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
 
     public Order getOrder(String number) throws OrderDoesntExistException {
         Order tmp = orders
@@ -21,9 +20,5 @@ public class Warehouse {
                 .filter(f -> f.getNumber().equals(number))
                 .findFirst().orElseThrow(() -> new OrderDoesntExistException());
         return tmp;
-    }
-
-    public void addOrder(Order order) {
-        orders.add(order);
     }
 }

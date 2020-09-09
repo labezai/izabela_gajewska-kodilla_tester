@@ -5,7 +5,6 @@ import com.kodilla.rest.service.BookService;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Book;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,12 +22,13 @@ public class BookController {
         return bookService.getBooks();
     }
 
-    @PatchMapping
+    @PostMapping
     public void addBook(@RequestBody BookDto bookDto) {
         bookService.addBook(bookDto);
+
     }
 
-    @PatchMapping
+    @DeleteMapping
     public void remove(@RequestBody Book book) {
         bookService.remove(book);
     }
