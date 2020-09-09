@@ -9,7 +9,12 @@ public class WarehouseTestSuite {
     @Test(expected = OrderDoesntExistException.class)
     public void testGetOrder_withException() throws OrderDoesntExistException {
         Warehouse warehouse = new Warehouse();
-        Order doesOrderExist= warehouse.getOrder("32");
-        assertEquals(false, doesOrderExist);
+        warehouse.addOrder(new Order("12"));
+        warehouse.addOrder(new Order("14"));
+        warehouse.addOrder(new Order("198"));
+        warehouse.addOrder(new Order("147"));
+        Order doesOrderExist= warehouse.getOrder("329865346890y642");
+        assertEquals(new Order("12"), doesOrderExist);
+        assertEquals(1,2);
     }
 }
