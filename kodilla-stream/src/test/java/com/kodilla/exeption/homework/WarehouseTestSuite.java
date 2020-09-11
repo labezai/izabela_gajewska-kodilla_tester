@@ -13,8 +13,9 @@ public class WarehouseTestSuite {
         warehouse.addOrder(new Order("14"));
         warehouse.addOrder(new Order("198"));
         warehouse.addOrder(new Order("147"));
-        Order doesOrderExist= warehouse.getOrder("329865346890y642");
+        Order doesOrderExist= warehouse.getOrder("32");
         assertEquals(new Order("12"), doesOrderExist);
         assertEquals(1,2);
     }
 }
+//o
