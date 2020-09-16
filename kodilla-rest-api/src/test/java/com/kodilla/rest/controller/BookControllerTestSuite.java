@@ -22,9 +22,9 @@ class BookControllerTestSuite {
         booksList.add(new BookDto("title1", "author1"));
         booksList.add(new BookDto("title2", "author2"));
         booksList.add(new BookDto("title3", "author3"));
-        Mockito.when(bookServiceMock.getBooks()).thenReturn(booksList);
+        Mockito.when(bookServiceMock.addBook()).thenReturn(booksList);
         //when
-        List<BookDto> result = bookController.getBooks();
+        List<BookDto> result = bookController.addBook();
         //then
         assertThat(result).hasSize(4);
 
