@@ -33,6 +33,7 @@ public class GamblingMachine {
         Random generator = new Random();
         while(numbers.size() < 6) {
             numbers.add(generator.nextInt(49) + 1);
+
         }
         System.out.println("wylosowane liczby" + numbers);
         return numbers;
