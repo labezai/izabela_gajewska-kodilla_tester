@@ -17,5 +17,4 @@ class PersonTestSuite {
         assertEquals(expected, manipulator.getBMI(input));
 
     }
-
 }
