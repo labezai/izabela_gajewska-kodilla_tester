@@ -5,13 +5,14 @@ import org.mockito.Mockito;
 
 public class WeatherNotificationServiceTestSuite {
 
+    WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
+    Client client = Mockito.mock(Client.class);
+    rfe notification = Mockito.mock(rfe.class);
+    Location location = Mockito.mock(Location.class);
+
     @Test
     public void ShouldClientSignInAndReceiveNotification() {
 //Osoba zainteresowana może zostać zapisana do danej lokalizacji, i zacznie otrzymywać powiadomienia.
-        WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
-        Client client = Mockito.mock(Client.class);
-        Notification notification = Mockito.mock(Notification.class);
-        Location location = Mockito.mock(Location.class);
 
         weatherNotificationService.addSubscriber(client);
         weatherNotificationService.addLocation(location);
@@ -22,70 +23,55 @@ public class WeatherNotificationServiceTestSuite {
     @Test
     public void ShouldClientDeleteLocationSubscription() {
 //Można wycofać subskrypcję z danej lokalizacji.
-        WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
-        Client client = Mockito.mock(Client.class);
-        Notification notification = Mockito.mock(Notification.class);
-        Location location = Mockito.mock(Location.class);
 
-        weatherNotificationService.addSubscriber(client);
-        weatherNotificationService.deleteLocation(location);
-        weatherNotificationService.notSendNotification(notification);
+        weatherNotificationService.sendNotification(notification);
+        weatherNotificationService.addLocation(location);
         Mockito.verify(client, Mockito.never()).receive(notification);
     }
 
     @Test
     public void ShouldClientStopReceivingNotifications() {
 //Można wycofać subskrypcję ze wszystkich lokalizacji, co równa się kompletnemu wypisaniu klienta z powiadomień.
-        WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
-        Client client = Mockito.mock(Client.class);
-        Notification notification = Mockito.mock(Notification.class);
-        Location location = Mockito.mock(Location.class);
-
-        weatherNotificationService.cancelSubscriber(client);
         weatherNotificationService.deleteAllLocations(location);
-        weatherNotificationService.notSendNotification(notification);
+        weatherNotificationService.removeSubscriber(client);
+
+        weatherNotificationService.sendNotification(notification);
         Mockito.verify(client, Mockito.never()).receive(notification);
     }
 
     @Test
     public void ShouldSpecificGroupOfClientsGetNotification() {
 //Powiadomienie dla osób w danej lokalizacji powinno dotrzeć tylko do określonej grupy osób.
-        WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
-        Client client = Mockito.mock(Client.class);
-        Notification notification = Mockito.mock(Notification.class);
-        Location location = Mockito.mock(Location.class);
 
-        weatherNotificationService.sendToGroupOdSubscribers(client);
-        weatherNotificationService.sendToSubscribers(location);
+        weatherNotificationService.addSubscriber(client);
+        weatherNotificationService.addLocation(location);
         weatherNotificationService.sendNotification(notification);
         Mockito.verify(client, Mockito.times(1)).receive(notification);
+
     }
 
     @Test
     public void ShouldAllSubscribersGetNotification() {
 //Możliwość wysyłki powiadomienia do wszystkich.
-        WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
-        Client client = Mockito.mock(Client.class);
-        Notification notification = Mockito.mock(Notification.class);
-        Location location = Mockito.mock(Location.class);
+        Client firstClient = Mockito.mock(Client.class);
+        Client secondClient = Mockito.mock(Client.class);
+        Client thirdClient = Mockito.mock(Client.class);
+        weatherNotificationService.addSubscriber(firstClient);
+        weatherNotificationService.addSubscriber(secondClient);
+        weatherNotificationService.addSubscriber(thirdClient);
 
-        weatherNotificationService.sendToAllSubscribers(client);
-        weatherNotificationService.sendToSubscribers(location);
         weatherNotificationService.sendNotification(notification);
-        Mockito.verify(client, Mockito.times(1)).receive(notification);
+        Mockito.verify(firstClient, Mockito.times(1)).receive(notification);
+        Mockito.verify(secondClient, Mockito.times(1)).receive(notification);
+        Mockito.verify(thirdClient, Mockito.times(1)).receive(notification);
     }
 
     @Test
     public void ShouldBeAbleToDeleteCurrentLocation() {
         //Możliwość skasowania danej lokalizacji.
-        WeatherNotificationService weatherNotificationService = new WeatherNotificationService();
-        Client client = Mockito.mock(Client.class);
-        Notification notification = Mockito.mock(Notification.class);
-        Location location = Mockito.mock(Location.class);
 
-        weatherNotificationService.notChangeSubscriberStatus(client);
-        weatherNotificationService.cancelLocation(location);
-        weatherNotificationService.notSendNotification(notification);
+        weatherNotificationService.deleteLocation(location);
+        weatherNotificationService.sendNotification(notification);
         Mockito.verify(client, Mockito.never()).receive(notification);
     }
 }
