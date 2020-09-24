@@ -31,5 +31,6 @@ public class BookController {
     @DeleteMapping
     public void remove(@RequestBody Book book) {
         bookService.remove(book);
+
     }
 }
