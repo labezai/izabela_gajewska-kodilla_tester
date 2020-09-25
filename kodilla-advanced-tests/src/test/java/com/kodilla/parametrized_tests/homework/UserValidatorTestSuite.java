@@ -20,6 +20,12 @@ public class UserValidatorTestSuite {
     public void checkEmail(String email) {
         assertTrue(userValidator.validateEmail(email));
 
+     @ParametrizedTest
+    @ValueSource(strings = {"anna anna@wp.pl"})
+     public void chceckEmail(String email) {
+         assertTrue(userValidator.validateEmail(email));
+        }
+
     }
 
 
