@@ -26,13 +26,14 @@ public class Shop {
     }
 
     // pobranie zamówień na podstawie przekazanego zakresu (najmniejsza i największa wartość zamówienia),
-    public void getMaxMinValue() {
+    public Order getMaxMinValue() {
         int a = 0;
         if (a < min) {
             a = min;
         } else if (a > max) {
             a = max;
         }
+        return null;
     }
 
     // zwrócenie liczby zamówień,
