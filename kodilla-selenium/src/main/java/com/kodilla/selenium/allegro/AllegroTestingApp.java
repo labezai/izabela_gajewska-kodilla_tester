@@ -25,9 +25,14 @@ public class AllegroTestingApp {
     Alert simpleAlert = driver.switchTo().alert();
     simpleAlert.accept();
 
-        WebElement inputField = driver.findElement(By.xpath("//INPUT[@type='search']"));
-        inputField.sendKeys("Laptop");
-        inputField.submit();
+
+
+          WebElement inputField = driver.findElement(By.xpath("//INPUT[@type='search']/self::INPUT"));
+                inputField.sendKeys("mavic mini");
+                inputField.submit();
     }
 }
 // //INPUT[@type='search']   xpath relative do szukajki
+// /html/body/div[2]/div[2]/header/div/div/div/div/form/input
+// placeholder[3] /div/div/form/input/placeholder[3]
+// "//*[@input=\"search\"]/div/div/input"
