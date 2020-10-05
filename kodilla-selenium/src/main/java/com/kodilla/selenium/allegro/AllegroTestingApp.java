@@ -35,4 +35,3 @@ public class AllegroTestingApp {
 // //INPUT[@type='search']   xpath relative do szukajki
 // /html/body/div[2]/div[2]/header/div/div/div/div/form/input
 // placeholder[3] /div/div/form/input/placeholder[3]
-// "//*[@input=\"search\"]/div/div/input"
