@@ -21,15 +21,14 @@ public class AllegroTestingApp {
         categorySelect.selectByIndex(3);
 
         driver.manage().window().maximize();
-    driver.findElement(By.xpath("/html/body/div[2]/div[8]/div/div[2]/div/div[2]/button[2]")).click();
-    Alert simpleAlert = driver.switchTo().alert();
-    simpleAlert.accept();
+        driver.findElement(By.xpath("/html/body/div[2]/div[8]/div/div[2]/div/div[2]/button[2]")).click();
+        Alert simpleAlert = driver.switchTo().alert();
+        simpleAlert.accept();
 
 
-
-          WebElement inputField = driver.findElement(By.xpath("//INPUT[@type='search']/self::INPUT"));
-                inputField.sendKeys("mavic mini");
-                inputField.submit();
+        WebElement inputField = driver.findElement(By.xpath("//INPUT[@type='search']/self::INPUT"));
+        inputField.sendKeys("mavic mini");
+        inputField.submit();
     }
 }
 
