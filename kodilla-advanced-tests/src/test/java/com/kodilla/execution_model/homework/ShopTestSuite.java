@@ -2,21 +2,25 @@ package com.kodilla.execution_model.homework;
 
 import org.junit.jupiter.api.*;
 
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ShopTestSuite {
     Shop shop = new Shop();
-    Order one = new Order(143.16, 10.2020, "Mike Morus");
-    Order two = new Order(254.16, 07.2017, "John Snow");
-    Order three = new Order(15.74, 01.2019, "Jan Kowalski");
+    Order one = new Order(143.00, 10.2020, "Mike Morus");
+    Order two = new Order(254.00, 07.2017, "John Snow");
+    Order three = new Order(100.00, 01.2019, "Jan Kowalski");
+    List<Order> orders = Arrays.asList(one, two, three);
 
+    //smiga
     @Test
     public void shouldAddOrders() {
-        //Given
-        Shop.addOrder(one);
-        Shop.addOrder(two);
-        Shop.addOrder(three);
 
         //When
         int numberOfOrders = shop.getSize();
@@ -27,11 +31,6 @@ public class ShopTestSuite {
 
     @Test
     public void shouldGetOrderFromTwoYears() {
-        //Given
-
-        Shop.addOrder(one);
-        Shop.addOrder(two);
-        Shop.addOrder(three);
 
         //When
         Order result = shop.between(10.2020, 10.2018);
@@ -41,44 +40,75 @@ public class ShopTestSuite {
         assertEquals("Mike Morus", result.getCustomerLogin());
     }
 
+    // ?
     @Test
-    public void shouldGetMaxAndMinValue() {
-
-        //Given
-        Shop.addOrder(one);
-        Shop.addOrder(two);
-        Shop.addOrder(three);
+    public void shouldGetMaxValue() {
 
         //When
-      //  Order result = shop.getMaxMinValue();
+        Order getMaxValue = orders
+                .stream()
+                .max(Comparator.comparing(Order::getOrderValue))
+                .orElseThrow(NoSuchElementException::new);
 
-        //Then
-        ;
+
+        assertEquals(254.0, getMaxValue);
     }
+
+    // ?
+    @Test
+    public void shouldGetMinValue() {
+
+        //When
+        Order getMinValue = orders
+                .stream()
+                .min(Comparator.comparing(Order::getOrderValue))
+                .orElseThrow(NoSuchElementException::new);
+
+        assertEquals(100, getMinValue);
+    }
+
+    //smiga
     @Test
     public void shouldGetSize() {
-        //Given
-        shop.addOrder(one);
-        Shop.addOrder(two);
-        Shop.addOrder(three);
 
         //When
         shop.getSize();
 
         //then
         assertEquals(3, shop.getSize());
+        System.out.println("The number of all orders is " + shop.getSize());
     }
 
+    //smiga
     @Test
     public void shouldGetTotalValue() {
-        //Given
-        shop.addOrder(one);
-        Shop.addOrder(two);
-        Shop.addOrder(three);
 
         //When
-        shop.
+        shop.sum();
+
+        //Then
+        assertEquals(497.00, shop.sum());
+        System.out.println("Total value of all orders is " + shop.sum());
+
     }
 
+    @BeforeEach
+    public void initializeShop() {
+        shop.addOrder(one);
+        shop.addOrder(two);
+        shop.addOrder(three);
+    }
 
+    @AfterEach
+    public void resetValues() {
+        System.out.println("Resetting values...");
+    }
+
+    @AfterAll
+    public static void displayGoodByeMessage() {
+        System.out.println("Finishing testing");
+    }
 }
+
+
+

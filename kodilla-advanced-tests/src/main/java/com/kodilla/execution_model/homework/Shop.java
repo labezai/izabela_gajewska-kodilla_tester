@@ -9,7 +9,7 @@ public class Shop {
     LocalDate current = LocalDate.now();
     LocalDate twoYearsAgo = current.minusYears(2);
     int max = 0;
-    int min = 30;
+    int min = 300;
 
     private List<Order> orders = new ArrayList<>();
 
@@ -19,21 +19,29 @@ public class Shop {
     }
 
     // zwrócenie listy zamówień z zakresu dwóch dat,
-    public void between(LocalDate current, LocalDate twoYearsAgo) {
+    public Order between(LocalDate current, LocalDate twoYearsAgo) {
         if (current.isBefore(twoYearsAgo)) {
-            return;
+            // return between();
         }
+        return null;
     }
 
     // pobranie zamówień na podstawie przekazanego zakresu (najmniejsza i największa wartość zamówienia),
-    public Order getMaxMinValue() {
+    public void getMaxValue() {
         int a = 0;
         if (a < min) {
             a = min;
-        } else if (a > max) {
+        }
+        return;
+    }
+
+    public void getMinValue() {
+        int a = 0;
+        if (a > max) {
             a = max;
         }
-        return null;
+        return;
+
     }
 
     // zwrócenie liczby zamówień,
@@ -42,13 +50,16 @@ public class Shop {
     }
 
     // zsumowanie wartości wszystkich zamówień.
-    public double getTotalValue() {
+    public double sum() {
         int sum = 0;
         for (int i = 0; i < orders.size(); i++) {
             sum += orders.get(i).getOrderValue();
         }
         return sum;
     }
+
+
 }
+
 
 
