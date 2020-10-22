@@ -3,9 +3,9 @@ Feature: This is a game "Fizz-Buzz-None"
   in another case - say "None"
 
   Scenario Outline: Answer the right word as a reaction to a given number
-    Given Given number is <number>
+    Given Given number is "<number>"
     When I ask about the password for the given number
-    Then I should be told <answer>
+    Then You should tell me <answer>
     Examples:
       | number | answer     |
       | 3      | "Fizz"     |
